@@ -16,7 +16,16 @@ ee8707667de1   mrcamel:v1.1   "/docker-entrypoint.…"   21 seconds ago   Up 20 
 brainkiller@Naveenbalaji:~/testdockercompose$ docker exec -it applicationcontainer1 sh
 / # ls
 bin                   docker-entrypoint.sh  lib                   opt                   run                   sys                   var
-dev                   etc                   media               brainkiller@Naveenbalaji:~/testdockercompose$ docker images
+dev                   etc                   media               4  proc                  sbin                  tmp
+docker-entrypoint.d   home                  mnt                   root                  srv                   usr
+/ # cd /var/opt/nginx/
+/var/opt/nginx # ls
+/var/opt/nginx # vi index.html
+/var/opt/nginx # exit
+
+
+
+brainkiller@Naveenbalaji:~/testdockercompose$ docker images
 REPOSITORY   TAG       IMAGE ID       CREATED        SIZE
 mrcamel      v1.1      a0c4dba0ebe6   2 hours ago    48.3MB
 mrcamel      v1.0      3e9d4566944b   4 hours ago    48.3MB
@@ -54,11 +63,6 @@ b1329246690c: Mounted from library/nginx
 7de24e36349b: Mounted from library/nginx
 7e400934d3c0: Mounted from library/nginx
 d4fc045c9e3a: Mounted from library/nginx
-v1.1: digest: sha256:9939a86768b8fcefae1188d637a7d3a026cae5021a5bc95eb83b9465a7b5fdb7 size: 2404  proc                  sbin                  tmp
-docker-entrypoint.d   home                  mnt                   root                  srv                   usr
-/ # cd /var/opt/nginx/
-/var/opt/nginx # ls
-/var/opt/nginx # vi index.html
-/var/opt/nginx # exit
+v1.1: digest: sha256:9939a86768b8fcefae1188d637a7d3a026cae5021a5bc95eb83b9465a7b5fdb7 size: 240
 
 
