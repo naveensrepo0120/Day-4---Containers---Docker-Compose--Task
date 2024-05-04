@@ -1,0 +1,11 @@
+version: '3'
+services:
+  webapplcation:
+    image: mrcamel:v1.1
+    container_name: applicationcontainer1
+    ports:
+      - '3030:80'
+    volumes:
+      - /home/brainkiller/testdockercompose/nginx:/var/opt/nginx
+volumes:
+  nginx_volume:
