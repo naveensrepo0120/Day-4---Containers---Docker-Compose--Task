@@ -1,0 +1,24 @@
+brainkiller@Naveenbalaji:~/testdockercompose$ vi Dockerfile
+brainkiller@Naveenbalaji:~/testdockercompose$ docker images
+REPOSITORY   TAG       IMAGE ID       CREATED             SIZE
+mrcamel      v1.1      a0c4dba0ebe6   4 minutes ago       48.3MB
+mrcamel      v1.0      3e9d4566944b   About an hour ago   48.3MB
+aboutme      v1.1      1ecc115f225a   8 hours ago         48.3MB
+aboutme      v1        077905ad7268   10 hours ago        48.3MB
+nginx        alpine    f4215f6ee683   10 days ago         48.3MB
+brainkiller@Naveenbalaji:~/testdockercompose$ vi docker-compose.yml
+brainkiller@Naveenbalaji:~/testdockercompose$ docker-compose up -d
+Creating volume "testdockercompose_nginx_volume" with default driver
+Recreating applicationcontainer1 ... done
+brainkiller@Naveenbalaji:~/testdockercompose$ docker ps -a
+CONTAINER ID   IMAGE          COMMAND                  CREATED          STATUS          PORTS                                   NAMES
+ee8707667de1   mrcamel:v1.1   "/docker-entrypoint.…"   21 seconds ago   Up 20 seconds   0.0.0.0:3030->80/tcp, :::3030->80/tcp   applicationcontainer1
+brainkiller@Naveenbalaji:~/testdockercompose$ docker exec -it applicationcontainer1 sh
+/ # ls
+bin                   docker-entrypoint.sh  lib                   opt                   run                   sys                   var
+dev                   etc                   media                 proc                  sbin                  tmp
+docker-entrypoint.d   home                  mnt                   root                  srv                   usr
+/ # cd /var/opt/nginx/
+/var/opt/nginx # ls
+/var/opt/nginx # vi index.html
+/var/opt/nginx # exit
